@@ -56,6 +56,10 @@ class BaseSignalProcessor(object):
         Given an individual model instance, update the object in the index.
         Update the related objects either.
         """
+        """
+        Shivam - We need to check the elasticsearch server status before calling the update function,
+        to make it faster, otherwise it takes time to check connectionerror.
+        """
         try:
             import requests
             url = 'http://' + settings.ELASTICSEARCH_DSL['default']['hosts']
